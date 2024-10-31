@@ -1,12 +1,13 @@
 ## About This Project
 
-This is a simple template for conveniently standing up basic PHP environments to noodle on code (and also comes with stuff to run tests against code, etc). It is dockerized and is composed of:
-
-- An app service layer that is running against a PHP 8.3 install.
+This project 
 
 ## Prerequisites
 
 - Docker.
+  - This project is dockerized and optimally will be able to be built and run with Docker.
+    - This will allow you to run things like test coverage generation, linting, and other tasks without needing to install PHP, Composer, etc. on your local machine.
+    - If you don't have Docker, you can still run the project locally, but you will need to install PHP, Composer, etc. on your local machine.
 
 ### Optional
 
@@ -15,7 +16,7 @@ This is a simple template for conveniently standing up basic PHP environments to
 
 ## Initially building the project
 
-1. `make init` - This will initially build + start the project.
+- `make init` - This will initially build + start the project.
 
 ## Continuously building the project
 
