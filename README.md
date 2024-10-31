@@ -1,6 +1,57 @@
 ## About This Project
 
-This project 
+This project proposes an approach to building a Finite-State Machine (FSM) in PHP. The FSM is a simple implementation that allows for the definition of states, transitions, and actions.
+The FSM is built to be extensible and flexible, allowing for the addition of new states, transitions, and actions.
+
+Some general notes on the philosophy around the structure and approach to building this FSM:
+
+- 
+
+### Usage - Instantiating a Finite-State Machine for the Assignment Example
+
+```php
+$states = new StateCollection(
+    new State('S0', '0'),
+    new State('S1', '1'),
+    new State('S2', '2')
+);
+
+$finalStates = new StateCollection(
+    new State('S0', '0')
+);
+
+$initialState = $states->getByName('S0');
+$s0 = $states->getByName('S0');
+$s1 = $states->getByName('S1');
+$s2 = $states->getByName('S2');
+$transitionTable = new Table();
+$transitionTable->add(
+    new Transition($s0, '0', $s0),
+    new Transition($s0, '1', $s1),
+    new Transition($s1, '0', $s2),
+    new Transition($s1, '1', $s0),
+    new Transition($s2, '0', $s1),
+    new Transition($s2, '1', $s2)
+);
+
+$machine = new Machine(
+    $states,
+    $alphabet,
+    $initialState,
+    $finalStates,
+    $transitionTable
+);
+
+$machine->process('1', '1', '0');
+$machine->getCurrentState()->getName();
+// Returns 'S0'.
+$machine->getCurrentState()->getOutput()
+// Returns '0'.
+$machine->isValidFinalState();
+// Returns `true`.
+```
+
+
 
 ## Prerequisites
 
@@ -29,3 +80,8 @@ This project
 - `make test-with-coverage-html` - This will run tests with coverage and open the coverage report in a browser.
 - `make phpcs` - This will lint the project.
 - `make phpcs-fix` - This will apply linter fixes to the project.
+
+## About the project
+
+## Using the library
+

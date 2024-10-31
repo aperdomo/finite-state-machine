@@ -1,5 +1,5 @@
 {
-    "name": "aperdomo/php-template",
+    "name": "aperdomo/finite-state-machine",
     "type": "project",
     "license": "MIT",
     "require": {

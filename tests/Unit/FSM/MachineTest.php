@@ -40,7 +40,7 @@ class MachineTest extends BaseTestCase
         $s1 = StateFactory::create('S1', '1');
         $s2 = StateFactory::create('S2', '2');
         $states = new StateCollection($s0, $s1, $s2);
-        $finalStates = new StateCollection($s0, $s1, $s2);
+        $finalStates = new StateCollection($s0);
         $alphabet = new Alphabet(['0', '1']);
 
         $transitionTable = new Table();
@@ -83,7 +83,7 @@ class MachineTest extends BaseTestCase
         $s1 = StateFactory::create('S1', '1');
         $s2 = StateFactory::create('S2', '2');
         $states = new StateCollection($s0, $s1, $s2);
-        $finalStates = new StateCollection($s0, $s1, $s2);
+        $finalStates = new StateCollection($s1);
         $alphabet = new Alphabet(['0', '1']);
 
         $transitionTable = new Table();
@@ -130,7 +130,7 @@ class MachineTest extends BaseTestCase
         $s1 = StateFactory::create('S1', '1');
         $s2 = StateFactory::create('S2', '2');
         $states = new StateCollection($s0, $s1, $s2);
-        $finalStates = new StateCollection($s0, $s1, $s2);
+        $finalStates = new StateCollection($s1);
         $alphabet = new Alphabet(['0', '1']);
 
         $transitionTable = new Table();
@@ -156,6 +156,7 @@ class MachineTest extends BaseTestCase
         $machine->process('1', '0', '1', '0');
         $this->assertEquals('S1', $machine->getCurrentState()->getName());
         $this->assertEquals('1', $machine->getCurrentState()->getOutput());
+        $this->assertTrue($machine->isValidFinalState());
     }
 
     public function test_it_can_transition_110_single_statement(): void
@@ -164,7 +165,7 @@ class MachineTest extends BaseTestCase
         $s1 = StateFactory::create('S1', '1');
         $s2 = StateFactory::create('S2', '2');
         $states = new StateCollection($s0, $s1, $s2);
-        $finalStates = new StateCollection($s0, $s1, $s2);
+        $finalStates = new StateCollection($s0);
         $alphabet = new Alphabet(['0', '1']);
 
         $transitionTable = new Table();
@@ -190,6 +191,7 @@ class MachineTest extends BaseTestCase
         $machine->process('1', '1', '0');
         $this->assertEquals('S0', $machine->getCurrentState()->getName());
         $this->assertEquals('0', $machine->getCurrentState()->getOutput());
+        $this->assertTrue($machine->isValidFinalState());
     }
 
     public function test_it_throws_if_invalid_input_provided(): void
