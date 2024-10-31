@@ -1,13 +1,14 @@
 ## About This Project
 
-This project proposes an approach to building a Finite-State Machine (FSM) in PHP as a library. The FSM is a simple implementation that allows for the definition of states, transitions, and actions.
+This project proposes an approach to building a Finite-State Machine (FSM) in PHP as a library.
+
+The FSM is a simple implementation that allows for the definition of states, transitions, and an alphabet to transition against.
 
 Some general notes on the philosophy around the structure and approach to building this FSM:
 
-- It's a 3-hour approach, so it's not exhaustively engineered aside from capturing core abstractions and concepts.
+- It is not exhaustively engineered aside from capturing core abstractions and concepts.
   - Those being `States`, `Transitions`, an `Alphabet`, and orchestrating the interactions between those in a `Machine`.
   - What is delivered here includes full test coverage for the approach, including assertions for the cases described in the assignment document.
-
 ### Prerequisites
 
 - Docker.
