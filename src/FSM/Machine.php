@@ -88,6 +88,18 @@ class Machine
     }
 
     /**
+     * @param string ...$values
+     * @return void
+     * @throws Exception
+     */
+    public function process(string ...$values): void
+    {
+        foreach ($values as $letter) {
+            $this->processInput($letter);
+        }
+    }
+
+    /**
      * Check if the current state is a final state.
      *
      * @return bool

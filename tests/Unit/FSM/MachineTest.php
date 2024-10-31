@@ -124,6 +124,74 @@ class MachineTest extends BaseTestCase
         $this->assertTrue($machine->isValidFinalState());
     }
 
+    public function test_it_can_transition_1010_single_statement(): void
+    {
+        $s0 = StateFactory::create('S0', '0');
+        $s1 = StateFactory::create('S1', '1');
+        $s2 = StateFactory::create('S2', '2');
+        $states = new StateCollection($s0, $s1, $s2);
+        $finalStates = new StateCollection($s0, $s1, $s2);
+        $alphabet = new Alphabet(['0', '1']);
+
+        $transitionTable = new Table();
+        $transitionTable->add(
+            new Transition($s0, '0', $s0),
+            new Transition($s0, '1', $s1),
+            new Transition($s1, '0', $s2),
+            new Transition($s1, '1', $s0),
+            new Transition($s2, '0', $s1),
+            new Transition($s2, '1', $s2)
+        );
+
+        $machine = new Machine(
+            $states,
+            $alphabet,
+            $s0,
+            $finalStates,
+            $transitionTable
+        );
+
+        $this->assertInstanceOf(Machine::class, $machine);
+        $this->assertEquals($s0, $machine->getCurrentState());
+        $machine->process('1', '0', '1', '0');
+        $this->assertEquals('S1', $machine->getCurrentState()->getName());
+        $this->assertEquals('1', $machine->getCurrentState()->getOutput());
+    }
+
+    public function test_it_can_transition_110_single_statement(): void
+    {
+        $s0 = StateFactory::create('S0', '0');
+        $s1 = StateFactory::create('S1', '1');
+        $s2 = StateFactory::create('S2', '2');
+        $states = new StateCollection($s0, $s1, $s2);
+        $finalStates = new StateCollection($s0, $s1, $s2);
+        $alphabet = new Alphabet(['0', '1']);
+
+        $transitionTable = new Table();
+        $transitionTable->add(
+            new Transition($s0, '0', $s0),
+            new Transition($s0, '1', $s1),
+            new Transition($s1, '0', $s2),
+            new Transition($s1, '1', $s0),
+            new Transition($s2, '0', $s1),
+            new Transition($s2, '1', $s2)
+        );
+
+        $machine = new Machine(
+            $states,
+            $alphabet,
+            $s0,
+            $finalStates,
+            $transitionTable
+        );
+
+        $this->assertInstanceOf(Machine::class, $machine);
+        $this->assertEquals($s0, $machine->getCurrentState());
+        $machine->process('1', '1', '0');
+        $this->assertEquals('S0', $machine->getCurrentState()->getName());
+        $this->assertEquals('0', $machine->getCurrentState()->getOutput());
+    }
+
     public function test_it_throws_if_invalid_input_provided(): void
     {
         $this->expectException(Exception::class);
