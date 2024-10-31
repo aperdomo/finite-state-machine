@@ -1,0 +1,14 @@
+services:
+  src:
+    container_name: "${CONTAINER_NAME_SERVICE}"
+    image: "${COMPOSE_PROJECT_NAME}:latest"
+    build:
+      target: base
+      context: .
+    env_file:
+      - .env
+    ports:
+      - "${APP_PORT}:80"
+    volumes:
+      - ./:/src
+    command: tail -f /dev/null
