@@ -49,4 +49,18 @@ class StateCollectionTest extends BaseTestCase
             )
         );
     }
+
+    public function test_it_can_get_by_name(): void
+    {
+        $state = new State('S0', '0', StateType::NON_FINAL);
+
+        $collection = new StateCollection(
+            $state,
+        );
+
+        $this->assertEquals(
+            $state,
+            $collection->getByName('S0')
+        );
+    }
 }

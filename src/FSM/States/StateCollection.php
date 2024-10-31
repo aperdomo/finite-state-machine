@@ -38,4 +38,13 @@ class StateCollection extends Collection
     {
         return $this->offsetExists($state->getName());
     }
+
+    /**
+     * @param string $name
+     * @return State
+     */
+    public function getByName(string $name): State
+    {
+        return $this->offsetGet($name);
+    }
 }
