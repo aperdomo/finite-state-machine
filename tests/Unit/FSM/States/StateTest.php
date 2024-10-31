@@ -12,18 +12,18 @@ class StateTest extends BaseTestCase
 {
     public function test_it_can_construct(): void
     {
-        $obj = new State('S0', '0', StateType::NON_FINAL);
+        $obj = new State('S0', '0', StateType::DEFAULT);
         $this->assertInstanceOf(State::class, $obj);
     }
 
     public function test_it_can_construct_from_factory(): void
     {
-        $obj = StateFactory::create('S0', '0', StateType::NON_FINAL);
+        $obj = StateFactory::create('S0', '0', StateType::DEFAULT);
         $this->assertInstanceOf(State::class, $obj);
 
         $objs = StateFactory::createMany([
-            ['S0', '0', StateType::NON_FINAL],
-            ['S1', '1', StateType::FINAL],
+            ['S0', '0', StateType::DEFAULT],
+            ['S1', '1', StateType::DEFAULT],
         ]);
         $this->assertCount(2, $objs);
         $this->assertContainsOnlyInstancesOf(State::class, $objs);
@@ -32,13 +32,13 @@ class StateTest extends BaseTestCase
 
     public function test_it_can_get_name(): void
     {
-        $obj = new State('S0', '0', StateType::NON_FINAL);
+        $obj = new State('S0', '0', StateType::DEFAULT);
         $this->assertEquals('S0', $obj->getName());
     }
 
     public function test_it_can_get_value(): void
     {
-        $obj = new State('S0', '0', StateType::NON_FINAL);
+        $obj = new State('S0', '0', StateType::DEFAULT);
         $this->assertEquals('0', $obj->getOutput());
     }
 }

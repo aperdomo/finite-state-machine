@@ -15,7 +15,7 @@ class StateFactory
     public static function create(
         string $name,
         string $value,
-        StateType $stateType = StateType::NON_FINAL
+        StateType $stateType = StateType::DEFAULT
     ): State {
         return new State($name, $value, $stateType);
     }

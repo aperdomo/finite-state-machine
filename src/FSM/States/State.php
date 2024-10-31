@@ -29,7 +29,7 @@ class State
     public function __construct(
         string $name,
         string $output_value,
-        StateType $type = StateType::NON_FINAL
+        StateType $type = StateType::DEFAULT
     ) {
         $this->name = $name;
         $this->output_value = $output_value;

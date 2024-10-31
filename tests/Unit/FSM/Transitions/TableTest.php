@@ -18,8 +18,8 @@ class TableTest extends BaseTestCase
 
     public function test_it_can_add(): void
     {
-        $state = new State('S1', '1', StateType::NON_FINAL);
-        $nextState = new State('S2', '2', StateType::NON_FINAL);
+        $state = new State('S1', '1', StateType::DEFAULT);
+        $nextState = new State('S2', '2', StateType::DEFAULT);
         $transition = new Transition($state, '1', $nextState);
         $table = new Table();
         $table->add(new Transition($state, '1', $nextState));
@@ -31,8 +31,8 @@ class TableTest extends BaseTestCase
     public function test_it_throws_for_invalid_input(): void
     {
         $this->expectException(Exception::class);
-        $state = new State('S1', '1', StateType::NON_FINAL);
-        $nextState = new State('S2', '2', StateType::NON_FINAL);
+        $state = new State('S1', '1', StateType::DEFAULT);
+        $nextState = new State('S2', '2', StateType::DEFAULT);
         $table = new Table();
         $table->add(new Transition($state, '1', $nextState));
         $table->transition($state, '9999');

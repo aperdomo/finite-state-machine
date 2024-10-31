@@ -12,9 +12,9 @@ class TransitionTest extends BaseTestCase
     public function test_it_can_construct(): void
     {
         $obj = new Transition(
-            new State('S0', '0', StateType::NON_FINAL),
+            new State('S0', '0', StateType::DEFAULT),
             '0',
-            new State('S1', '1', StateType::NON_FINAL),
+            new State('S1', '1', StateType::DEFAULT),
         );
 
         $this->assertInstanceOf(Transition::class, $obj);
@@ -22,10 +22,10 @@ class TransitionTest extends BaseTestCase
 
     public function test_it_can_get_next_state(): void
     {
-        $next = new State('S1', '1', StateType::NON_FINAL);
+        $next = new State('S1', '1', StateType::DEFAULT);
 
         $transition = new Transition(
-            new State('S0', '0', StateType::NON_FINAL),
+            new State('S0', '0', StateType::DEFAULT),
             '0',
             $next,
         );
@@ -35,12 +35,12 @@ class TransitionTest extends BaseTestCase
 
     public function test_is_current_state(): void
     {
-        $current = new State('S1', '1', StateType::NON_FINAL);
+        $current = new State('S1', '1', StateType::DEFAULT);
 
         $transition = new Transition(
             $current,
             '0',
-            new State('S1', '1', StateType::NON_FINAL),
+            new State('S1', '1', StateType::DEFAULT),
         );
 
         $this->assertTrue(

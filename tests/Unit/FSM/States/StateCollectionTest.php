@@ -12,8 +12,8 @@ class StateCollectionTest extends BaseTestCase
     public function test_it_can_construct(): void
     {
         $collection = new StateCollection(
-            new State('S0', '0', StateType::NON_FINAL),
-            new State('S1', '1', StateType::NON_FINAL)
+            new State('S0', '0', StateType::DEFAULT),
+            new State('S1', '1', StateType::DEFAULT)
         );
 
         $this->assertInstanceOf(StateCollection::class, $collection);
@@ -22,16 +22,16 @@ class StateCollectionTest extends BaseTestCase
     public function test_it_can_add(): void
     {
         $collection = new StateCollection(
-            new State('S0', '0', StateType::NON_FINAL),
+            new State('S0', '0', StateType::DEFAULT),
         );
 
-        $collection->add(new State('S1', '1', StateType::NON_FINAL));
+        $collection->add(new State('S1', '1', StateType::DEFAULT));
         $this->assertCount(2, $collection);
     }
 
     public function test_it_can_check_it_has_something(): void
     {
-        $state = new State('S0', '0', StateType::NON_FINAL);
+        $state = new State('S0', '0', StateType::DEFAULT);
 
         $collection = new StateCollection(
             $state,
@@ -39,7 +39,7 @@ class StateCollectionTest extends BaseTestCase
 
         $this->assertFalse(
             $collection->has(
-                new State('S2', '2', StateType::NON_FINAL)
+                new State('S2', '2', StateType::DEFAULT)
             )
         );
 
@@ -52,7 +52,7 @@ class StateCollectionTest extends BaseTestCase
 
     public function test_it_can_get_by_name(): void
     {
-        $state = new State('S0', '0', StateType::NON_FINAL);
+        $state = new State('S0', '0', StateType::DEFAULT);
 
         $collection = new StateCollection(
             $state,
