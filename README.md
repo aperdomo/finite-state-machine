@@ -13,8 +13,7 @@ Some general notes on the philosophy around the structure and approach to buildi
 
 - Docker.
   - This project is dockerized and optimally will be able to be built and run with Docker.
-    - This will allow you to run things like test coverage generation, linting, and other tasks without needing to install PHP, Composer, etc. on your local machine.
-    - If you don't have Docker, you can still run the project locally, but you will need to install PHP, Composer, etc. on your local machine.
+    - This will allow you to run things like test coverage generation, linting, etc. without needing to ensure stuff is installed on your local machine (aside from Docker, of course).
 
 ### Optional
 
@@ -79,5 +78,3 @@ $machine->isValidFinalState();
 - `make test-with-coverage-html` - This will run tests with coverage and open the coverage report in a browser.
 - `make phpcs` - This will lint the project.
 - `make phpcs-fix` - This will apply linter fixes to the project.
-
-## About the project
