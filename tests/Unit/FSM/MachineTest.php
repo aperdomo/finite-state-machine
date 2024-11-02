@@ -21,7 +21,7 @@ class MachineTest extends BaseTestCase
                 ['S1', '1'],
                 ['S2', '2'],
             ]),
-             new Alphabet('0', '1'),
+            new Alphabet('0', '1'),
             StateFactory::create('S0', '0'),
             StateFactory::createMany([
                 ['S0', '0'],
