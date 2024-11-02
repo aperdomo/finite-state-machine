@@ -20,7 +20,7 @@ Some general notes on the philosophy around the structure and approach to buildi
 - The ability to run `make` commands.
   - Otherwise, just pull the command stubs out of the Makefile and run them manually.
 
-### Usage - Instantiating a Finite-State Machine for the Assignment Example
+### Usage - Instantiating a Finite-State Machine
 
 ```php
 $states = new \Src\FSM\States\StateCollection(
