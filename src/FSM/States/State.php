@@ -7,33 +7,15 @@ use Src\FSM\States\Enum\StateType;
 class State
 {
     /**
-     * @var string
-     */
-    public string $name;
-
-    /**
-     * @var string
-     */
-    public string $output_value;
-
-    /**
-     * @var StateType
-     */
-    public StateType $type;
-
-    /**
      * @param string $name
      * @param string $output_value
      * @param StateType $type
      */
     public function __construct(
-        string $name,
-        string $output_value,
-        StateType $type = StateType::DEFAULT
+        protected string $name,
+        protected string $output_value,
+        protected StateType $type = StateType::DEFAULT
     ) {
-        $this->name = $name;
-        $this->output_value = $output_value;
-        $this->type = $type;
     }
 
     /**
