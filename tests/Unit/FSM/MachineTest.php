@@ -21,7 +21,7 @@ class MachineTest extends BaseTestCase
                 ['S1', '1'],
                 ['S2', '2'],
             ]),
-            new Alphabet(['0', '1']),
+             new Alphabet('0', '1'),
             StateFactory::create('S0', '0'),
             StateFactory::createMany([
                 ['S0', '0'],
@@ -41,7 +41,7 @@ class MachineTest extends BaseTestCase
         $s2 = StateFactory::create('S2', '2');
         $states = new StateCollection($s0, $s1, $s2);
         $finalStates = new StateCollection($s0);
-        $alphabet = new Alphabet(['0', '1']);
+        $alphabet =  new Alphabet('0', '1');
 
         $transitionTable = new Table();
         $transitionTable->add(
@@ -84,7 +84,7 @@ class MachineTest extends BaseTestCase
         $s2 = StateFactory::create('S2', '2');
         $states = new StateCollection($s0, $s1, $s2);
         $finalStates = new StateCollection($s1);
-        $alphabet = new Alphabet(['0', '1']);
+        $alphabet =  new Alphabet('0', '1');
 
         $transitionTable = new Table();
         $transitionTable->add(
@@ -131,7 +131,7 @@ class MachineTest extends BaseTestCase
         $s2 = StateFactory::create('S2', '2');
         $states = new StateCollection($s0, $s1, $s2);
         $finalStates = new StateCollection($s1);
-        $alphabet = new Alphabet(['0', '1']);
+        $alphabet =  new Alphabet('0', '1');
 
         $transitionTable = new Table();
         $transitionTable->add(
@@ -166,7 +166,7 @@ class MachineTest extends BaseTestCase
         $s2 = StateFactory::create('S2', '2');
         $states = new StateCollection($s0, $s1, $s2);
         $finalStates = new StateCollection($s0);
-        $alphabet = new Alphabet(['0', '1']);
+        $alphabet =  new Alphabet('0', '1');
 
         $transitionTable = new Table();
         $transitionTable->add(
@@ -202,7 +202,7 @@ class MachineTest extends BaseTestCase
         $s2 = StateFactory::create('S2', '2');
         $states = new StateCollection($s0, $s1, $s2);
         $finalStates = new StateCollection($s0, $s1, $s2);
-        $alphabet = new Alphabet(['0', '1']);
+        $alphabet =  new Alphabet('0', '1');
 
         $transitionTable = new Table();
         $transitionTable->add(
@@ -235,7 +235,7 @@ class MachineTest extends BaseTestCase
         $s2 = StateFactory::create('S2', '2');
         $states = new StateCollection($s0, $s1, $s2);
         $finalStates = new StateCollection($s0, $s1, $s2);
-        $alphabet = new Alphabet(['0', '1']);
+        $alphabet =  new Alphabet('0', '1');
 
         $transitionTable = new Table();
         $transitionTable->add(
@@ -264,7 +264,7 @@ class MachineTest extends BaseTestCase
         $s2 = StateFactory::create('S2', '2');
         $states = new StateCollection($s0, $s1, $s2);
         $finalStates = new StateCollection($s0, $s1, StateFactory::create('S99', '99'));
-        $alphabet = new Alphabet(['0', '1']);
+        $alphabet =  new Alphabet('0', '1');
 
         $transitionTable = new Table();
         $transitionTable->add(

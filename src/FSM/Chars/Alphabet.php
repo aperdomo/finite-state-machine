@@ -12,7 +12,7 @@ class Alphabet
     /**
      * @param string[] $letters
      */
-    public function __construct(array $letters)
+    public function __construct(string ...$letters)
     {
         $this->letters = $letters;
     }

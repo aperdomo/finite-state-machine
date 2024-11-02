@@ -47,6 +47,8 @@ $transitionTable->add(
     new \Src\FSM\Transitions\Transition($s2, '1', $s2)
 );
 
+$alphabet = new \Src\FSM\Alphabet('0', '1');
+
 $machine = new \Src\FSM\Machine(
     $states,
     $alphabet,
@@ -54,13 +56,16 @@ $machine = new \Src\FSM\Machine(
     $finalStates,
     $transitionTable
 );
+
+// Process the input string '110'.
 $machine->process('1', '1', '0');
-$machine->getCurrentState()->getName();
+
 // Returns 'S0'.
-$machine->getCurrentState()->getOutput()
+$machine->getCurrentState()->getName();
 // Returns '0'.
-$machine->isValidFinalState();
+$machine->getCurrentState()->getOutput()
 // Returns `true`.
+$machine->isValidFinalState();
 ```
 
 ## Initially building the project
