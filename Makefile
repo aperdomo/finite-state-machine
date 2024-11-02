@@ -20,11 +20,11 @@ start:
 restart:
 	make stop && make start
 test:
-	$(DOCKER_EXEC) php ./vendor/bin/phpunit --testdox
+	$(DOCKER_EXEC) php ./vendor/bin/phpunit
 test-with-coverage:
-	$(DOCKER_EXEC) docker-php-ext-enable pcov && $(DOCKER_EXEC) ./vendor/bin/phpunit --coverage-text
+	$(DOCKER_EXEC) docker-php-ext-enable pcov && $(DOCKER_EXEC) ./vendor/bin/phpunit --testdox --coverage-text
 test-with-coverage-html:
-	$(DOCKER_EXEC) docker-php-ext-enable pcov && $(DOCKER_EXEC) ./vendor/bin/phpunit --coverage-html=coverage && open coverage/index.html
+	$(DOCKER_EXEC) docker-php-ext-enable pcov && $(DOCKER_EXEC) ./vendor/bin/phpunit --testdox --coverage-html=coverage && open coverage/index.html
 dump-autoload:
 	$(DOCKER_EXEC) composer dump-autoload
 composer-install:
